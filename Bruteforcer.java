@@ -13,12 +13,14 @@ import java.util.Scanner;
 
 public class Bruteforcer {
  public static void main(String[] args) {
+
   int iterations = 0;
   String currentPass = "          "; // has length 10 cuz 10 spaces
   for (int current = 0; current < 10; current++) { //permutations for length
    brute(32, 0, current, currentPass); //first char is 32 0 index and 0 length gets empty hash first
    System.out.println("Found hashes are in AnswersYAY.txt");
   }
+
  }
 
  public static String hash(String input) {
@@ -43,7 +45,7 @@ public class Bruteforcer {
 
     fw = new FileWriter(file.getAbsoluteFile(), true);
     bw = new BufferedWriter(fw);
-    bw.write(stringifiedMd5);
+    bw.write(stringifiedMd5 + " = " + input);
     bw.newLine(); //maybe delete
     System.out.println("Hash Found!!! " + input + " = " + stringifiedMd5);
 
@@ -68,6 +70,9 @@ public class Bruteforcer {
     }
    }
   }
+  else{
+    System.out.println("ELSEFCUKER");
+  }
   return stringifiedMd5;
  }
 
@@ -79,6 +84,7 @@ public class Bruteforcer {
 
    while (scanner.hasNextLine()) {
     String line = scanner.nextLine();
+    System.out.println(line + " vs. " + plsCheck );
     if (line.equals(plsCheck)) {
      return true;
     }

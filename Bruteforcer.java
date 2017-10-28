@@ -70,9 +70,7 @@ public class Bruteforcer {
     }
    }
   }
-  else{
-    System.out.println("ELSEFCUKER");
-  }
+
   return stringifiedMd5;
  }
 

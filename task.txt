@@ -1,0 +1,35 @@
+Many websites use one-way hash functions like MD5 to store passwords. The
+one-way property is essential for password storage because it protects from
+adversaries: A compromised user database does not immediately reveal all
+passwords. Hence, a breach of Facebook does not immediately allow attackers to
+take over your Google account - even if you use the same password.
+
+However, cryptographic hash functions are not the best tools for storing
+passwords. They are optimized for speed. Thus, adversaries can attempt to find
+the original input of the hash function by attempting all possibilities. This
+technique is called a "brute force" attack. Passwords that you retrieved using
+this method are referred to as "cracked". Modern key-stretching algorithms
+(bcrypt, scrypt, ...) are purposefully much slower than cryptographic hash
+functions and are thus more suited towards storing passwords.
+
+The hashes.txt file contains 50 hashes of different passwords. Each password was
+hashed with a modified MD5 algorithm (Md5Hasher.java). Beware: The modified MD5
+does not return the same values that a normal MD5 hash algorithm would. 
+
+Your task is to write a brute force algorithm in Java and retrieve as many of
+the 50 passwords as you can.
+
+- You have to use the Md5Hasher class to calculate hashes.
+- Passwords can contain all characters you would expect in a password
+  (uppercase, lowercase, numbers, special characters).
+- You will probably not crack all passwords, but we reserve bonus points for the
+  student with the most cracked passwords.
+Length of a password is arbitrary. 
+
+Please submit the code of your bruteforcer and all the passwords you have
+cracked.
+
+The optimizations you implement are up to you. Search for documentation on
+existing password crackers to see the large number of optimizations you could
+theoretically implement (multithreading, fast data structures, ...).
+The length of the passwords is arbitrary.
